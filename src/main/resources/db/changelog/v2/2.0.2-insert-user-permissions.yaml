@@ -1,0 +1,105 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1714043878889-2.0.2.1
+      author: srthealik
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: name
+                  value: "post::user"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: name
+                  value: "get::user-confirmation"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "3"
+              - column:
+                  name: name
+                  value: "post::user-details"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "4"
+              - column:
+                  name: name
+                  value: "get::user::all"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "5"
+              - column:
+                  name: name
+                  value: "get::user::id"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "6"
+              - column:
+                  name: name
+                  value: "delete::user::id"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "7"
+              - column:
+                  name: name
+                  value: "get::user-forgot-pass::email-or-phone"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "8"
+              - column:
+                  name: name
+                  value: "post::user-reset-pass-confirm"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "9"
+              - column:
+                  name: name
+                  value: "post::user-change-pass"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "10"
+              - column:
+                  name: name
+                  value: "post::user::subscription"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "11"
+              - column:
+                  name: name
+                  value: "post::user::confirm-subscription"

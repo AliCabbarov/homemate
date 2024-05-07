@@ -1,0 +1,105 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1714043878889-2.0.3.1
+      author: srthealik
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "12"
+              - column:
+                  name: name
+                  value: "post::advert"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "13"
+              - column:
+                  name: name
+                  value: "get::advert::all"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "14"
+              - column:
+                  name: name
+                  value: "get::advert::id"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "15"
+              - column:
+                  name: name
+                  value: "get::connection::advert-id"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "16"
+              - column:
+                  name: name
+                  value: "post::property-type"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "17"
+              - column:
+                  name: name
+                  value: "get::property-type::all"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "18"
+              - column:
+                  name: name
+                  value: "post::building-type"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "19"
+              - column:
+                  name: name
+                  value: "get::building-type::all"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "20"
+              - column:
+                  name: name
+                  value: "post::advert-type"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "21"
+              - column:
+                  name: name
+                  value: "get::advert-type::all"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "22"
+              - column:
+                  name: name
+                  value: "delete::advert::id"

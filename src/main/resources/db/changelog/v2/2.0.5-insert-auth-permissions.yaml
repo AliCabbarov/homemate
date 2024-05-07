@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1714043878889-2.0.5.1
+      author: srthealik
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "31"
+              - column:
+                  name: name
+                  value: "post::login"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "32"
+              - column:
+                  name: name
+                  value: "get::token::refresh"
+        - insert:
+            tableName: permission
+            columns:
+              - column:
+                  name: id
+                  value: "33"
+              - column:
+                  name: name
+                  value: "get::auth-login"

@@ -1,0 +1,72 @@
+databaseChangeLog:
+  - changeSet:
+      author: srthealik
+      id: 1714043878889-1.0.5.1
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: table_detail
+            columns:
+              - column:
+                  name: id
+                  value: "9"
+              - column:
+                  name: created_at
+                  value: "now()"
+              - column:
+                  name: updated_at
+                  value: "now()"
+              - column:
+                  name: status
+                  value: "true"
+        - insert:
+            tableName: table_detail
+            columns:
+              - column:
+                  name: id
+                  value: "10"
+              - column:
+                  name: created_at
+                  value: "now()"
+              - column:
+                  name: updated_at
+                  value: "now()"
+              - column:
+                  name: status
+                  value: "true"
+  - changeSet:
+      author: srthealik
+      id: 1714043878889-1.0.5.2
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: gender
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: name
+                  value: "Male"
+              - column:
+                  name: available
+                  value: "true"
+              - column:
+                  name: table_detail_id
+                  value: "9"
+        - insert:
+            tableName: gender
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: name
+                  value: "Female"
+              - column:
+                  name: available
+                  value: "true"
+              - column:
+                  name: table_detail_id
+                  value: "10"
+

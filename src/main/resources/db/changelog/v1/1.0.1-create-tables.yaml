@@ -1,0 +1,983 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1714043878889-1
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: advert_type_seq
+            startValue: 150
+  - changeSet:
+      id: 1714043878889-2
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: building_type_seq
+            startValue: 150
+  - changeSet:
+      id: 1714043878889-3
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: gender_seq
+            startValue: 150
+  - changeSet:
+      id: 1714043878889-4
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: role_seq
+            startValue: 150
+  - changeSet:
+      id: 1714043878889-5
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: subs_type_seq
+            startValue: 150
+  - changeSet:
+      id: 1714043878889-6
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: table_detail_seq
+            startValue: 150
+  - changeSet:
+      id: 1714043878889-7
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk__user
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    unique: true
+                  name: phone_number
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: last_login_ip
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: enabled
+                  type: BOOLEAN
+              - column:
+                  name: role_id
+                  type: BIGINT
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+              - column:
+                  name: user_detail_id
+                  type: BIGINT
+            tableName: _user
+  - changeSet:
+      id: 1714043878889-8
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_advert
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: amount
+                  type: DOUBLE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: active
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: expired_day
+                  type: BIGINT
+              - column:
+                  name: advert_detail_id
+                  type: BIGINT
+              - column:
+                  name: property_detail_id
+                  type: BIGINT
+              - column:
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: advert
+  - changeSet:
+      id: 1714043878889-9
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: advert_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: advert_types_id
+                  type: BIGINT
+            tableName: advert_advert_types
+  - changeSet:
+      id: 1714043878889-10
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_advertdetail
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: move_time
+                  type: DATE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: living_count
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: searching_count
+                  type: INT
+              - column:
+                  name: gender_id
+                  type: BIGINT
+            tableName: advert_detail
+  - changeSet:
+      id: 1714043878889-11
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_adverttype
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: advert_type
+  - changeSet:
+      id: 1714043878889-12
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_buildingtype
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: available
+                  type: BOOLEAN
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: building_type
+  - changeSet:
+      id: 1714043878889-13
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_gender
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: available
+                  type: BOOLEAN
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: gender
+  - changeSet:
+      id: 1714043878889-14
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_permission
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: permission
+  - changeSet:
+      id: 1714043878889-15
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_propertydetail
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: address
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: floor_count
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: floor
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: gas
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: elevator
+                  type: BOOLEAN
+              - column:
+                  name: building_type_id
+                  type: BIGINT
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: property_detail
+  - changeSet:
+      id: 1714043878889-16
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: property_detail_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: property_types_id
+                  type: BIGINT
+            tableName: property_detail_property_types
+  - changeSet:
+      id: 1714043878889-17
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_propertytype
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: available
+                  type: BOOLEAN
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: property_type
+  - changeSet:
+      id: 1714043878889-18
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_role
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: role
+  - changeSet:
+      id: 1714043878889-19
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: role_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: permissions_id
+                  type: BIGINT
+            tableName: role_permissions
+  - changeSet:
+      id: 1714043878889-20
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_substype
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: price
+                  type: DOUBLE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: count
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: available
+                  type: BOOLEAN
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: subs_type
+  - changeSet:
+      id: 1714043878889-21
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_subscription
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: confirm
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: amount
+                  type: DOUBLE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: count
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: available
+                  type: BOOLEAN
+              - column:
+                  name: subs_type_id
+                  type: BIGINT
+              - column:
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: subscription
+  - changeSet:
+      id: 1714043878889-22
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: subscription_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: adverts_id
+                  type: BIGINT
+            tableName: subscription_adverts
+  - changeSet:
+      id: 1714043878889-23
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_tabledetail
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: created_at
+                  type: DATETIME
+              - column:
+                  name: updated_at
+                  type: DATETIME
+              - column:
+                  constraints:
+                    nullable: false
+                  name: status
+                  type: BOOLEAN
+            tableName: table_detail
+  - changeSet:
+      id: 1714043878889-24
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_token
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: expired
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: available
+                  type: BOOLEAN
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: token_type
+                  type: VARCHAR(255)
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+              - column:
+                  name: user_id
+                  type: BIGINT
+            tableName: token
+  - changeSet:
+      id: 1714043878889-25
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_userdetail
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: firstname
+                  type: VARCHAR(255)
+              - column:
+                  name: lastname
+                  type: VARCHAR(255)
+              - column:
+                  name: birthdate
+                  type: DATE
+              - column:
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  name: table_detail_id
+                  type: BIGINT
+            tableName: user_detail
+  - changeSet:
+      id: 1714043878889-26
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: email
+            constraintName: uc__user_email
+            tableName: _user
+  - changeSet:
+      id: 1714043878889-27
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: uc_substype_name
+            tableName: subs_type
+  - changeSet:
+      id: 1714043878889-28
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: gender_id
+            baseTableName: advert_detail
+            constraintName: FK_ADVERTDETAIL_ON_GENDER
+            referencedColumnNames: id
+            referencedTableName: gender
+  - changeSet:
+      id: 1714043878889-29
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: advert_type
+            constraintName: FK_ADVERTTYPE_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-30
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: advert_detail_id
+            baseTableName: advert
+            constraintName: FK_ADVERT_ON_ADVERT_DETAIL
+            referencedColumnNames: id
+            referencedTableName: advert_detail
+  - changeSet:
+      id: 1714043878889-31
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: property_detail_id
+            baseTableName: advert
+            constraintName: FK_ADVERT_ON_PROPERTY_DETAIL
+            referencedColumnNames: id
+            referencedTableName: property_detail
+  - changeSet:
+      id: 1714043878889-32
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: advert
+            constraintName: FK_ADVERT_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-33
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: advert
+            constraintName: FK_ADVERT_ON_USER
+            referencedColumnNames: id
+            referencedTableName: _user
+  - changeSet:
+      id: 1714043878889-34
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: building_type
+            constraintName: FK_BUILDINGTYPE_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-35
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: gender
+            constraintName: FK_GENDER_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-36
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: building_type_id
+            baseTableName: property_detail
+            constraintName: FK_PROPERTYDETAIL_ON_BUILDING_TYPE
+            referencedColumnNames: id
+            referencedTableName: building_type
+  - changeSet:
+      id: 1714043878889-37
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: property_detail
+            constraintName: FK_PROPERTYDETAIL_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-38
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: property_type
+            constraintName: FK_PROPERTYTYPE_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-39
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: role
+            constraintName: FK_ROLE_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-40
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: subs_type_id
+            baseTableName: subscription
+            constraintName: FK_SUBSCRIPTION_ON_SUBS_TYPE
+            referencedColumnNames: id
+            referencedTableName: subs_type
+  - changeSet:
+      id: 1714043878889-41
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: subscription
+            constraintName: FK_SUBSCRIPTION_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-42
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: subscription
+            constraintName: FK_SUBSCRIPTION_ON_USER
+            referencedColumnNames: id
+            referencedTableName: _user
+  - changeSet:
+      id: 1714043878889-43
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: subs_type
+            constraintName: FK_SUBSTYPE_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-44
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: token
+            constraintName: FK_TOKEN_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-45
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: token
+            constraintName: FK_TOKEN_ON_USER
+            referencedColumnNames: id
+            referencedTableName: _user
+  - changeSet:
+      id: 1714043878889-46
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: user_detail
+            constraintName: FK_USERDETAIL_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-47
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_detail
+            constraintName: FK_USERDETAIL_ON_USER
+            referencedColumnNames: id
+            referencedTableName: _user
+  - changeSet:
+      id: 1714043878889-48
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: _user
+            constraintName: FK__USER_ON_ROLE
+            referencedColumnNames: id
+            referencedTableName: role
+  - changeSet:
+      id: 1714043878889-49
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: table_detail_id
+            baseTableName: _user
+            constraintName: FK__USER_ON_TABLE_DETAIL
+            referencedColumnNames: id
+            referencedTableName: table_detail
+  - changeSet:
+      id: 1714043878889-50
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_detail_id
+            baseTableName: _user
+            constraintName: FK__USER_ON_USER_DETAIL
+            referencedColumnNames: id
+            referencedTableName: user_detail
+  - changeSet:
+      id: 1714043878889-51
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: advert_id
+            baseTableName: advert_advert_types
+            constraintName: fk_advadvtyp_on_advert
+            referencedColumnNames: id
+            referencedTableName: advert
+  - changeSet:
+      id: 1714043878889-52
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: advert_types_id
+            baseTableName: advert_advert_types
+            constraintName: fk_advadvtyp_on_advert_type
+            referencedColumnNames: id
+            referencedTableName: advert_type
+  - changeSet:
+      id: 1714043878889-53
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: property_detail_id
+            baseTableName: property_detail_property_types
+            constraintName: fk_prodetprotyp_on_property_detail
+            referencedColumnNames: id
+            referencedTableName: property_detail
+  - changeSet:
+      id: 1714043878889-54
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: property_types_id
+            baseTableName: property_detail_property_types
+            constraintName: fk_prodetprotyp_on_property_type
+            referencedColumnNames: id
+            referencedTableName: property_type
+  - changeSet:
+      id: 1714043878889-55
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: permissions_id
+            baseTableName: role_permissions
+            constraintName: fk_rolper_on_permission
+            referencedColumnNames: id
+            referencedTableName: permission
+  - changeSet:
+      id: 1714043878889-56
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: role_permissions
+            constraintName: fk_rolper_on_role
+            referencedColumnNames: id
+            referencedTableName: role
+  - changeSet:
+      id: 1714043878889-57
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: adverts_id
+            baseTableName: subscription_adverts
+            constraintName: fk_subadv_on_advert
+            referencedColumnNames: id
+            referencedTableName: advert
+  - changeSet:
+      id: 1714043878889-58
+      author: user (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: subscription_id
+            baseTableName: subscription_adverts
+            constraintName: fk_subadv_on_subscription
+            referencedColumnNames: id
+            referencedTableName: subscription
+

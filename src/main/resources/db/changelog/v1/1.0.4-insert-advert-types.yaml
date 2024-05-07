@@ -1,0 +1,101 @@
+databaseChangeLog:
+  - changeSet:
+      author: srthealik
+      id: 1714043878889-1.0.4.1
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: table_detail
+            columns:
+              - column:
+                  name: id
+                  value: "6"
+              - column:
+                  name: created_at
+                  value: "now()"
+              - column:
+                  name: updated_at
+                  value: "now()"
+              - column:
+                  name: status
+                  value: "true"
+        - insert:
+            tableName: table_detail
+            columns:
+              - column:
+                  name: id
+                  value: "7"
+              - column:
+                  name: created_at
+                  value: "now()"
+              - column:
+                  name: updated_at
+                  value: "now()"
+              - column:
+                  name: status
+                  value: "true"
+        - insert:
+            tableName: table_detail
+            columns:
+              - column:
+                  name: id
+                  value: "8"
+              - column:
+                  name: created_at
+                  value: "now()"
+              - column:
+                  name: updated_at
+                  value: "now()"
+              - column:
+                  name: status
+                  value: "true"
+  - changeSet:
+      author: srthealik
+      id: 1714043878889-1.0.4.2
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: advert_type
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: name
+                  value: "Kirayə verilir"
+              - column:
+                  name: description
+                  value: "???"
+              - column:
+                  name: table_detail_id
+                  value: "6 "
+        - insert:
+            tableName: advert_type
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: name
+                  value: "Satılır"
+              - column:
+                  name: description
+                  value: "???"
+              - column:
+                  name: table_detail_id
+                  value: "7"
+        - insert:
+            tableName: advert_type
+            columns:
+              - column:
+                  name: id
+                  value: "3"
+              - column:
+                  name: name
+                  value: "Otaq yoldaşı axtarılır"
+              - column:
+                  name: description
+                  value: "???"
+              - column:
+                  name: table_detail_id
+                  value: "8"

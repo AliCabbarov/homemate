@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: homemate
+  profiles:
+    include:
+      - email
+      - db
+      - security
+      - cons
+server:
+  port: 8080
+logging:
+  level:
+    web: trace

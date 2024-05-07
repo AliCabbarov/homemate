@@ -1,0 +1,150 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1714043878889-2.0.6.1
+      author: srthealik
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "3"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "5"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "6"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "9"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "10"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "11"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "27"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "29"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "12"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "13"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "14"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "15"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "29"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "19"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "21"
+        - insert:
+            tableName: role_permissions
+            columns:
+              - column:
+                  name: role_id
+                  value: "1"
+              - column:
+                  name: permissions_id
+                  value: "22"

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql-homemate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresql-homemate
+  template:
+    metadata:
+      labels:
+        app: postgresql-homemate
+    spec:
+      containers:
+        - name: postgresql
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: postgres
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: '123456'

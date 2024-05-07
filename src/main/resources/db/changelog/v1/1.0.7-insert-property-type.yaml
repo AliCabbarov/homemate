@@ -1,0 +1,78 @@
+databaseChangeLog:
+  - changeSet:
+      author: srthealik
+      id: 1714043878889-1.0.7.1
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: table_detail
+            columns:
+              - column:
+                  name: id
+                  value: "13"
+              - column:
+                  name: created_at
+                  value: "now()"
+              - column:
+                  name: updated_at
+                  value: "now()"
+              - column:
+                  name: status
+                  value: "true"
+        - insert:
+            tableName: table_detail
+            columns:
+              - column:
+                  name: id
+                  value: "14"
+              - column:
+                  name: created_at
+                  value: "now()"
+              - column:
+                  name: updated_at
+                  value: "now()"
+              - column:
+                  name: status
+                  value: "true"
+  - changeSet:
+      author: srthealik
+      id: 1714043878889-1.0.7.2
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: property_type
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: name
+                  value: "mənzil"
+              - column:
+                  name: available
+                  value: "true"
+              - column:
+                  name: description
+                  value: "???"
+              - column:
+                  name: table_detail_id
+                  value: "13"
+        - insert:
+            tableName: property_type
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: description
+                  value: "???"
+              - column:
+                  name: name
+                  value: "həyət evi"
+              - column:
+                  name: available
+                  value: "true"
+              - column:
+                  name: table_detail_id
+                  value: "14"
+

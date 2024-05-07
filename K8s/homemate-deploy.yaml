@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homemate-backend-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homemate-backend-tier
+  template:
+    metadata:
+      labels:
+        app: homemate-backend-tier
+    spec:
+      containers:
+        - name: homemate-backend
+          image: srthealikk/homemate:1.0.4
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_URL
+              value: jdbc:postgresql://postgresql-homemate-svc-cip:5432/postgres
+            - name: DB_USERNAME
+              value: postgres
+            - name: DB_PASSWORD
+              value: '123456'
+            - name: APP_HOST
+              value: "35.232.64.13"
+            - name: APP_PORT
+              value: "80"

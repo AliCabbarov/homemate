@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1714043878889-1.0.10.1
+      author: srthealik
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: table_detail
+            columns:
+              - column:
+                  name: id
+                  value: "15"
+              - column:
+                  name: created_at
+                  value: "now()"
+              - column:
+                  name: updated_at
+                  value: "now()"
+              - column:
+                  name: status
+                  value: "true"
+  - changeSet:
+      id: 1714043878889-1.0.10.2
+      author: srthealik
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - insert:
+            tableName: _user
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: email
+                  value: "eli.cabbarov2003@gmail.com"
+              - column:
+                  name: phone_number
+                  value: "0556936692"
+              - column:
+                  name: password
+                  value: "$2a$10$YrmFiDBT8na9IDjvnJdyl.Pl226uA45Ex7tQ1/hj77.nwYea3v8bu"
+              - column:
+                  name: enabled
+                  value: "true"
+              - column:
+                  name: role_id
+                  value: "2"
+              - column:
+                  name: table_detail_id
+                  value: "14"
+
+

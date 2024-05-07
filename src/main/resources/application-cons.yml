@@ -1,0 +1,12 @@
+app:
+  time:
+    token:
+      refresh: 1800000
+      confirmation: 1800000
+      forgotten: 1800000
+  host:
+    ip: ${APP_HOST:localhost}
+    port: ${APP_PORT:8080}
+
+
+
