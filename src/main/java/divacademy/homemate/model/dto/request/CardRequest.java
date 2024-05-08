@@ -14,7 +14,7 @@ import static divacademy.homemate.model.constant.ValidationExceptions.NOT_BLANK_
 @Getter
 public class CardRequest {
     @NotBlank(message = NOT_BLANK_EXCEPTION)
-    @Pattern(regexp = "[0-9],{16}",message = CARD_NUMBER_PATTERN_EXCEPTION)
+    @Pattern(regexp = "\\d{16}",message = CARD_NUMBER_PATTERN_EXCEPTION)
     private String cardNumber;
     private LocalDate expiredDate;
     private int cvv;

@@ -101,7 +101,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     @Transactional
     public ResponseEntity<MessageResponse> changeRoleByUserId(long userId, long roleId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> NotFoundException.of(ExceptionResponse.of(Exceptions.NOT_FOUND.getMessage(), Exceptions.NOT_FOUND.getStatus()), userId));
+        User user = userRepository.findByIdAndEnabled(userId,true).orElseThrow(() -> NotFoundException.of(ExceptionResponse.of(Exceptions.NOT_FOUND.getMessage(), Exceptions.NOT_FOUND.getStatus()), userId));
         Role role = roleRepository.findById(roleId).orElseThrow(() -> NotFoundException.of(ExceptionResponse.of(Exceptions.NOT_FOUND.getMessage(), Exceptions.NOT_FOUND.getStatus()), roleId));
         user.setRole(role);
         return ResponseEntity.ok(MessageResponse.of(messageUtil.getMessage(MESSAGE_SUCCESSFULLY.getMessage()), HttpStatus.CREATED));

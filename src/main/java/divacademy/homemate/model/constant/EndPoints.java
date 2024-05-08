@@ -30,23 +30,23 @@ public class EndPoints {
      * -------------------Advert controller------------------------
      */
 
-    public static String POST_ADVERT = "api/vi/adverts";
-    public static String GET_ALL_ADVERT = "api/vi/adverts";
-    public static String GET_ADVERT = "api/vi/adverts/{id}";
-    public static String GET_CONNECTION = "api/vi/adverts/connection/{advertId}";
-    public static String POST_PROPERTY_TYPE = "api/vi/adverts/property-type";
-    public static String GET_ALL_PROPERTY_TYPE = "api/vi/adverts/property-type";
-    public static String POST_BUILDING_TYPE = "api/vi/adverts//building-types";
-    public static String GET_ALL_BUILDING_TYPE = "api/vi/adverts//building-types";
-    public static String POST_ADVERT_TYPE = "api/vi/adverts/advert-type";
-    public static String GET_ALL_ADVERT_TYPE = "api/vi/adverts/advert-type";
-    public static String DELETE_ADVERT_BY_ID = "api/vi/adverts/{id}";
+    public static String POST_ADVERT = "api/v1/adverts";
+    public static String GET_ALL_ADVERT = "api/v1/adverts";
+    public static String GET_ADVERT = "api/v1/adverts/{id}";
+    public static String GET_CONNECTION = "api/v1/adverts/connection/{advertId}";
+    public static String POST_PROPERTY_TYPE = "api/v1/adverts/property-type";
+    public static String GET_ALL_PROPERTY_TYPE = "api/v1/adverts/property-type";
+    public static String POST_BUILDING_TYPE = "api/v1/adverts/building-types";
+    public static String GET_ALL_BUILDING_TYPE = "api/v1/adverts/building-types";
+    public static String POST_ADVERT_TYPE = "api/v1/adverts/advert-type";
+    public static String GET_ALL_ADVERT_TYPE = "api/v1/adverts/advert-type";
+    public static String DELETE_ADVERT_BY_ID = "api/v1/adverts/{id}";
 
     /**
      * -------------------Auth controller------------------------
      */
     public static String POST_LOGIN = "api/v1/auth";
-    public static String GET_TOKEN_BY_REFRESH = "api/vi/auth";
+    public static String GET_TOKEN_BY_REFRESH = "api/v1/auth";
     public static String GET_OAUTH_LOGIN = "api/v1/auth/oauth-login";
 
     /**

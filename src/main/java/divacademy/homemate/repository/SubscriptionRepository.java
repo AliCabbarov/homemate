@@ -12,7 +12,7 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, Long
     @Query("select s from Subscription s where s.user = ?1 and s.available = ?2")
     Optional<Subscription> findByUserAndAvailable(User user, boolean available);
 
-    Optional<Subscription> findByConfirmAndAvailableAndId(boolean confirm, boolean available, long id);
+    Optional<Subscription> findByConfirmAndAvailableAndIdAndUser(boolean confirm, boolean available, long id,User user);
 
     Optional<Subscription> findByUserAndAvailableAndConfirm(User user, boolean available, boolean confirm);
 

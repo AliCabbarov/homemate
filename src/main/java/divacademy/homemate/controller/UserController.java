@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @GetMapping
-    ResponseEntity<Page<UserResponse>> getAllUser(@RequestParam(required = false) int pageNumber, @RequestParam(required = false) int pageSize) {
+    ResponseEntity<Page<UserResponse>> getAllUser(@RequestParam(required = false,defaultValue = "0") int pageNumber, @RequestParam(required = false,defaultValue = "10") int pageSize) {
         return userService.getAll(pageNumber, pageSize);
     }
 

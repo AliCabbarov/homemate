@@ -1,5 +1,7 @@
 package divacademy.homemate.config;
 
+import divacademy.homemate.entrypoint.CustomAccessDeniedHandler;
+import divacademy.homemate.entrypoint.CustomAuthenticationEntryPoint;
 import divacademy.homemate.filter.JwtAuthenticationFilter;
 import divacademy.homemate.model.constant.EndPoints;
 import divacademy.homemate.model.constant.Permissions;
@@ -13,7 +15,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -86,7 +90,11 @@ public class SecurityConfig {
 
                         .anyRequest().denyAll())
 
+
                 .authenticationProvider(authenticationProvider)
+                .exceptionHandling(handling-> handling
+                        .authenticationEntryPoint(authenticationEntryPoint())
+                        .accessDeniedHandler(accessDeniedHandler()))
                 .oauth2Login(httpSecurityOAuth2LoginConfigurer -> httpSecurityOAuth2LoginConfigurer.successHandler(oAuth2ApplicationConfigurer.successHandler()))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
@@ -94,7 +102,15 @@ public class SecurityConfig {
 
         return security.build();
     }
+    @Bean
+    public AuthenticationEntryPoint authenticationEntryPoint() {
+        return new CustomAuthenticationEntryPoint();
+    }
 
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler() {
+        return new CustomAccessDeniedHandler();
+    }
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

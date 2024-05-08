@@ -1,12 +1,10 @@
 package divacademy.homemate.service.impl;
 
 import divacademy.homemate.mapper.*;
-import divacademy.homemate.model.constant.Permissions;
 import divacademy.homemate.model.dto.request.*;
 import divacademy.homemate.model.dto.response.*;
 import divacademy.homemate.model.entity.*;
 import divacademy.homemate.model.enums.Exceptions;
-import divacademy.homemate.model.exception.ApplicationException;
 import divacademy.homemate.model.exception.NotFoundException;
 import divacademy.homemate.repository.*;
 import divacademy.homemate.service.AdvertService;
@@ -52,8 +50,9 @@ public class AdvertServiceImpl implements AdvertService {
                 NotFoundException.of(ExceptionResponse.of(NOT_FOUND.getMessage(), NOT_FOUND.getStatus()), advertId));
 
         User user = advert.getUser();
+        User authenticatedUser = userService.getAuthenticatedUser();
 
-        List<Subscription> allSubscriptionList = subscriptionRepository.findByUser(user);
+        List<Subscription> allSubscriptionList = subscriptionRepository.findByUser(authenticatedUser);
 
         ConnectionResponse connectionResponse = new ConnectionResponse(advertId, user.getPhoneNumber(), user.getEmail());
 
@@ -63,7 +62,7 @@ public class AdvertServiceImpl implements AdvertService {
             }
         }
 
-        Subscription subscription = subscriptionRepository.findByUserAndAvailableAndConfirm(user, true, true).orElseThrow(() ->
+        Subscription subscription = subscriptionRepository.findByUserAndAvailableAndConfirm(authenticatedUser, true, true).orElseThrow(() ->
                 NotFoundException.of(ExceptionResponse.of(NOT_FOUND.getMessage(), NOT_FOUND.getStatus()), "available subscription"));
 
         subscription.addAdvert(advert);
@@ -175,9 +174,9 @@ public class AdvertServiceImpl implements AdvertService {
     public ResponseEntity<MessageResponse> delete(long id) {
         User authenticatedUser = userService.getAuthenticatedUser();
         boolean hasPermissionForDeleteById = authenticatedUser.getAuthorities()
-                .stream().anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals(Permissions.DELETE_ADVERT_BY_ID));
+                .stream().anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
 
-        Advert advert = advertRepository.findById(id).orElseThrow(() -> NotFoundException.of(ExceptionResponse.of(NOT_FOUND.getMessage(), NOT_FOUND.getStatus()), id));
+        Advert advert = advertRepository.findByIdAndActive(id,true).orElseThrow(() -> NotFoundException.of(ExceptionResponse.of(NOT_FOUND.getMessage(), NOT_FOUND.getStatus()), id));
 
         if (hasPermissionForDeleteById){
         advert.setActive(false);

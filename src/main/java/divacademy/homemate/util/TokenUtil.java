@@ -41,17 +41,12 @@ public class TokenUtil {
 
     public Claims extractAllClaims(String token) {
         Claims body;
-        try {
 
             body = Jwts.parserBuilder()
                     .setSigningKey(getSecretKey())
                     .build()
                     .parseClaimsJws(token)
                     .getBody();
-
-        }catch (RuntimeException e){
-            throw ApplicationException.of(ExceptionResponse.of(e.getMessage(),HttpStatus.BAD_REQUEST));
-        }
         return body;
 
     }

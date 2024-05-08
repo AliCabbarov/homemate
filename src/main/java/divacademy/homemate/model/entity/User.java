@@ -51,9 +51,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<Permission> permissions =  new ArrayList<>();
-        this.role.getPermissions().stream()
-                .map(permissions::add);
+
+        List<Permission> permissions = new ArrayList<>(role.getPermissions());
 
         permissions.add(new Permission(role.getName()));
 

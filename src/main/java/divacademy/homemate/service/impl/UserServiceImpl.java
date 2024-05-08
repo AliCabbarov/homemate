@@ -5,7 +5,6 @@ import divacademy.homemate.config.AuthenticationDetails;
 import divacademy.homemate.mapper.SubscriptionMapper;
 import divacademy.homemate.mapper.UserDetailMapper;
 import divacademy.homemate.mapper.UserMapper;
-import divacademy.homemate.model.constant.Permissions;
 import divacademy.homemate.model.dto.request.*;
 import divacademy.homemate.model.dto.response.ExceptionResponse;
 import divacademy.homemate.model.dto.response.MessageResponse;
@@ -125,7 +124,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<UserResponse> getById(long id) {
         boolean hasPermissionGetById = getAuthenticatedUser().getAuthorities().stream()
-                .anyMatch(authority -> authority.getAuthority().equals(Permissions.GET_USER_BY_ID));
+                .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"));
         if (hasPermissionGetById) {
             return ResponseEntity.ok(userMapper.map(getUserById(id)));
         } else {
@@ -136,7 +135,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<MessageResponse> deleteById(long id) {
         boolean hasPermissionGetById = getAuthenticatedUser().getAuthorities().stream()
-                .anyMatch(authority -> authority.getAuthority().equals(Permissions.DELETE_USER_BY_ID));
+                .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"));
         User user;
         if (hasPermissionGetById) {
             user = getUserById(id);
@@ -177,7 +176,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<?> confirmSubs(long subsId, CardRequest cardRequest) {
-        Subscription subscription = subscriptionRepository.findByConfirmAndAvailableAndId(false, true, subsId).orElseThrow(() ->
+        User authenticatedUser = getAuthenticatedUser();
+        Subscription subscription = subscriptionRepository.findByConfirmAndAvailableAndIdAndUser(false, true, subsId,authenticatedUser).orElseThrow(() ->
                 NotFoundException.of(ExceptionResponse.of(NOT_FOUND.getMessage(), NOT_FOUND.getStatus()),
                         subsId));
 

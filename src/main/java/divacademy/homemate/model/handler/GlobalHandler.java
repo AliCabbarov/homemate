@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.WebRequest;
 import divacademy.homemate.model.enums.Exceptions;
+import org.springframework.security.access.AccessDeniedException;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -53,15 +54,20 @@ public class GlobalHandler extends DefaultErrorAttributes {
                                                       WebRequest webRequest) {
         return of(ex,webRequest);
     }
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handle(MethodArgumentNotValidException ex,
                                                       WebRequest webRequest) {
         return of(ex,webRequest);
     }
-//    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, Object>> handle(Exception ex,
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Map<String, Object>> handle(AccessDeniedException ex,
                                                       WebRequest webRequest) {
         return of(ex,webRequest);
+    }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Map<String, Object>> handle(Exception ex,
+                                                      WebRequest webRequest) {
+        return of(ex, webRequest);
     }
 
     private Map<String, Object> buildExceptionResponse(String message,
@@ -107,6 +113,13 @@ public class GlobalHandler extends DefaultErrorAttributes {
                         webRequest
                 ),
                 HttpStatus.BAD_REQUEST);
+    }
+    private ResponseEntity<Map<String,Object>> of(AccessDeniedException ex,WebRequest webRequest){
+        return new ResponseEntity<>(
+                buildExceptionResponse(messageUtil.getMessage(Exceptions.ACCESS_DENIED_EXCEPTION.getMessage()),
+                        webRequest,
+                        Exceptions.ACCESS_DENIED_EXCEPTION.getStatus()),
+                Exceptions.ACCESS_DENIED_EXCEPTION.getStatus());
     }
     private ResponseEntity<Map<String,Object>> of(Exception ex,WebRequest webRequest){
         return new ResponseEntity<>(
