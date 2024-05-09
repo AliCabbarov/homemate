@@ -16,7 +16,6 @@ public interface UserMapper {
             @Mapping(target = "tableDetail", ignore = true),
             @Mapping(target = "userDetail", ignore = true),
             @Mapping(target = "password", ignore = true),
-            @Mapping(target = "authorities", ignore = true),
     })
     User map(UserRequest userRequest, @MappingTarget User user);
 

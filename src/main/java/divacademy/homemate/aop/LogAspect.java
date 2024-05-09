@@ -10,6 +10,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Aspect
@@ -22,7 +24,7 @@ public class LogAspect {
     public Object logAllPayments(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         Signature signature = proceedingJoinPoint.getSignature();
-            log.info("Process with {} request:  {}",signature.getName(),List.of(proceedingJoinPoint.getArgs()));
+            log.info("Process with {} request:  {}",signature.getName(),new ArrayList<>(Arrays.asList(proceedingJoinPoint.getArgs())));
             Object response = proceedingJoinPoint.proceed();
             log.info("Process with {} response: {}", signature.getName(), response);
             return response;

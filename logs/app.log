@@ -1,0 +1,9 @@
+2024-05-10 00:08:00,891 TRACE [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to divacademy.homemate.controller.FileController#getFilesByAdvertId(Long)
+2024-05-10 00:08:00,894 TRACE [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping  2 matching mappings: [{ [/error]}, { [/error], produces [text/html]}]
+2024-05-10 00:08:00,895 TRACE [http-nio-8080-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-05-10 00:08:28,380 TRACE [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to divacademy.homemate.controller.FileController#getFilesByAdvertId(Long)
+2024-05-10 00:08:28,387 TRACE [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping  2 matching mappings: [{ [/error]}, { [/error], produces [text/html]}]
+2024-05-10 00:08:28,387 TRACE [http-nio-8080-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-05-10 00:08:42,045 TRACE [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to divacademy.homemate.controller.FileController#getFilesByAdvertId(Long)
+2024-05-10 00:08:42,047 TRACE [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping  2 matching mappings: [{ [/error]}, { [/error], produces [text/html]}]
+2024-05-10 00:08:42,048 TRACE [http-nio-8080-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)

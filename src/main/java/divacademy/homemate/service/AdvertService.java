@@ -2,6 +2,7 @@ package divacademy.homemate.service;
 
 import divacademy.homemate.model.dto.request.*;
 import divacademy.homemate.model.dto.response.*;
+import divacademy.homemate.model.entity.Advert;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 
@@ -29,4 +30,6 @@ public interface AdvertService {
     ResponseEntity<AdvertResponse> getById(long id);
 
     ResponseEntity<MessageResponse> delete(long id);
+
+    Advert findById(Long id);
 }

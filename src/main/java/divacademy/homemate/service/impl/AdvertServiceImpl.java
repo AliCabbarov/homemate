@@ -190,6 +190,11 @@ public class AdvertServiceImpl implements AdvertService {
         throw new AccessDeniedException(Exceptions.ACCESS_DENIED_EXCEPTION.getMessage());
     }
 
+    @Override
+    public Advert findById(Long id) {
+        return advertRepository.findByIdAndActive(id,true).orElseThrow(()->NotFoundException.of(ExceptionResponse.of(NOT_FOUND.getMessage(), NOT_FOUND.getStatus()), id));
+    }
+
     private boolean isAllSearch(Object dto) {
         return dto != null;
     }

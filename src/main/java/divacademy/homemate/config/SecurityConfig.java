@@ -88,6 +88,10 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,EndPoints.GET_TOKEN_BY_REFRESH).anonymous()
                         .requestMatchers(HttpMethod.GET,EndPoints.GET_OAUTH_LOGIN).anonymous()
 
+                        .requestMatchers(HttpMethod.POST,EndPoints.POST_FILE).authenticated()
+                        .requestMatchers(HttpMethod.GET,EndPoints.GET_FILES_URLS).authenticated()
+                        .requestMatchers(HttpMethod.GET,EndPoints.GET_FILES).authenticated()
+
                         .anyRequest().denyAll())
 
 

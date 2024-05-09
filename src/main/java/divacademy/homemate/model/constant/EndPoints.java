@@ -63,4 +63,12 @@ public class EndPoints {
     public static String SWAGGER_UI = "/swagger-ui/**";
     public static String SWAGGER_WEBJARS = "/webjars/**";
     public static String SWAGGER_UI_HTML = "/swagger-ui.html";
+    /**
+     * -------------------File controller------------------------
+     */
+    public static String POST_FILE = "api/v1/files/{advertId}";
+    public static String GET_FILES_URLS = "api/v1/files/{id}";
+    public static String GET_FILES = "api/v1/files/download/{fileName}";
+
+
 }

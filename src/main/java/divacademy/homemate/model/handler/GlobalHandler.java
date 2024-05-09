@@ -20,9 +20,12 @@ import org.springframework.web.context.request.WebRequest;
 import divacademy.homemate.model.enums.Exceptions;
 import org.springframework.security.access.AccessDeniedException;
 
+import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+
+import static divacademy.homemate.model.enums.Exceptions.NOT_FOUND;
 
 @RestControllerAdvice
 @RequiredArgsConstructor
@@ -71,12 +74,18 @@ public class GlobalHandler extends DefaultErrorAttributes {
                                                       WebRequest webRequest) {
         return of(ex, webRequest);
     }
+    @ExceptionHandler(FileNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handle(FileNotFoundException ex,
+                                                      WebRequest webRequest) {
+        return of(ex, webRequest);
+    }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handle(Exception ex,
                                                       WebRequest webRequest) {
         return of(ex, webRequest);
     }
+
 
     @Log
     private Map<String, Object> buildExceptionResponse(String message,
@@ -129,6 +138,13 @@ public class GlobalHandler extends DefaultErrorAttributes {
     private ResponseEntity<Map<String, Object>> of(AccessDeniedException ex, WebRequest webRequest) {
         return new ResponseEntity<>(
                 buildExceptionResponse(messageUtil.getMessage(Exceptions.ACCESS_DENIED_EXCEPTION.getMessage()),
+                        webRequest,
+                        Exceptions.ACCESS_DENIED_EXCEPTION.getStatus()),
+                Exceptions.ACCESS_DENIED_EXCEPTION.getStatus());
+    }
+    private ResponseEntity<Map<String, Object>> of(FileNotFoundException ex, WebRequest webRequest) {
+        return new ResponseEntity<>(
+                buildExceptionResponse(messageUtil.getMessage(NOT_FOUND.getMessage(),"file"),
                         webRequest,
                         Exceptions.ACCESS_DENIED_EXCEPTION.getStatus()),
                 Exceptions.ACCESS_DENIED_EXCEPTION.getStatus());
