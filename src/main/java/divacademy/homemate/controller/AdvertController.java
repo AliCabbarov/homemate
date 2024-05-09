@@ -1,5 +1,6 @@
 package divacademy.homemate.controller;
 
+import divacademy.homemate.aop.Log;
 import divacademy.homemate.model.dto.request.*;
 import divacademy.homemate.model.dto.response.*;
 import divacademy.homemate.service.AdvertService;
@@ -18,11 +19,13 @@ import java.util.List;
 @SecurityRequirement(name = "bearerAuth")
 public class AdvertController {
     private final AdvertService advertService;
+    @Log
 
     @PostMapping
     public ResponseEntity<MessageResponse> create(@RequestBody @Valid AdvertRequest advertRequest) {
         return advertService.create(advertRequest);
     }
+    @Log
 
     @GetMapping
     public ResponseEntity<Page<AdvertsResponse>> getAll(
@@ -35,46 +38,56 @@ public class AdvertController {
             @RequestParam(required = false, defaultValue = "0") int page) {
         return advertService.getAll(new AdvertFilterRequest(firstPrice, secondPrice, genderId, buildingTypeId, propertyTypeId), page, size);
     }
+    @Log
 
     @GetMapping("/{id}")
     public ResponseEntity<AdvertResponse> getById(@PathVariable long id) {
         return advertService.getById(id);
     }
+    @Log
 
     @GetMapping("/connection/{advertId}")
     public ResponseEntity<ConnectionResponse> getConnection(@PathVariable long advertId) {
         return advertService.getConnection(advertId);
     }
+    @Log
 
     @PostMapping("/property-type")
     public ResponseEntity<MessageResponse> createPropertyType(@RequestBody  @Valid AdvertPropertyTypeRequest propertyTypeRequest) {
         return advertService.createProperty(propertyTypeRequest);
     }
+    @Log
 
     @GetMapping("/property-type")
     public ResponseEntity<List<PropertyTypeResponse>> getProperties() {
         return advertService.getAllProperties();
     }
+    @Log
 
     @PostMapping("/advert-type")
     public ResponseEntity<MessageResponse> createAdvertType(@RequestBody @Valid AdvertTypeRequest advertTypeRequest) {
         return advertService.createAdvertType(advertTypeRequest);
     }
+    @Log
 
     @GetMapping("/advert-type")
     public ResponseEntity<List<AdvertTypeResponse>> getAllAdvertType() {
         return advertService.getAllAdvertType();
     }
+    @Log
 
     @PostMapping("/building-types")
     public ResponseEntity<MessageResponse> createBuildingType(@RequestBody @Valid BuildingTypeRequest buildingTypeRequest) {
         return advertService.createBuildingType(buildingTypeRequest);
     }
+    @Log
 
     @GetMapping("/building-types")
     public ResponseEntity<List<BuildingTypeResponse>> getAllBuildingType() {
         return advertService.getAllBuildingTypes();
     }
+    @Log
+
     @DeleteMapping("/{id}")
     public ResponseEntity<MessageResponse> deleteAdvert(@PathVariable long id){
         return advertService.delete(id);

@@ -1,5 +1,6 @@
 package divacademy.homemate.model.handler;
 
+import divacademy.homemate.aop.Log;
 import divacademy.homemate.model.exception.ApplicationException;
 import divacademy.homemate.model.exception.NotFoundException;
 import divacademy.homemate.model.exception.UsernameNotFoundException;
@@ -32,44 +33,52 @@ public class GlobalHandler extends DefaultErrorAttributes {
     @ExceptionHandler(ApplicationException.class)
     public ResponseEntity<Map<String, Object>> handle(ApplicationException ex,
                                                       WebRequest webRequest) {
-        return of(ex,webRequest);
+        return of(ex, webRequest);
     }
+
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Map<String, Object>> handle(NotFoundException ex,
                                                       WebRequest webRequest) {
-        return of(ex,webRequest);
+        return of(ex, webRequest);
     }
+
     @ExceptionHandler(UsernameNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handle(UsernameNotFoundException ex,
                                                       WebRequest webRequest) {
-        return of(ex,webRequest);
+        return of(ex, webRequest);
     }
+
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<Map<String, Object>> handle(BadCredentialsException ex,
                                                       WebRequest webRequest) {
-        return of(ex,webRequest);
+        return of(ex, webRequest);
     }
+
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Map<String, Object>> handle(DataIntegrityViolationException ex,
                                                       WebRequest webRequest) {
-        return of(ex,webRequest);
+        return of(ex, webRequest);
     }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handle(MethodArgumentNotValidException ex,
                                                       WebRequest webRequest) {
-        return of(ex,webRequest);
+        return of(ex, webRequest);
     }
+
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<Map<String, Object>> handle(AccessDeniedException ex,
                                                       WebRequest webRequest) {
-        return of(ex,webRequest);
+        return of(ex, webRequest);
     }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handle(Exception ex,
                                                       WebRequest webRequest) {
         return of(ex, webRequest);
     }
 
+    @Log
     private Map<String, Object> buildExceptionResponse(String message,
                                                        WebRequest webRequest,
                                                        HttpStatus http) {
@@ -83,14 +92,15 @@ public class GlobalHandler extends DefaultErrorAttributes {
         return errorAttributes;
     }
 
+    @Log
     private Map<String, Object> buildExceptionResponse(MethodArgumentNotValidException ex,
                                                        WebRequest webRequest) {
 
-        Map<String,Object> invalidFields = new HashMap<>();
+        Map<String, Object> invalidFields = new HashMap<>();
         Map<String, Object> errorAttributes = getErrorAttributes(webRequest, ErrorAttributeOptions.defaults());
 
 
-        ex.getFieldErrors().forEach(fieldError -> invalidFields.put(fieldError.getField(),messageUtil.getMessage(fieldError.getDefaultMessage())));
+        ex.getFieldErrors().forEach(fieldError -> invalidFields.put(fieldError.getField(), messageUtil.getMessage(fieldError.getDefaultMessage())));
 
         errorAttributes.put("error", invalidFields);
         errorAttributes.put("status", HttpStatus.BAD_REQUEST.value());
@@ -100,35 +110,39 @@ public class GlobalHandler extends DefaultErrorAttributes {
         return errorAttributes;
     }
 
-    private ResponseEntity<Map<String,Object>> of(ApplicationException ex,WebRequest webRequest){
+    private ResponseEntity<Map<String, Object>> of(ApplicationException ex, WebRequest webRequest) {
         return new ResponseEntity<>(
                 buildExceptionResponse(messageUtil.getMessage(ex.getResponse().getMessage()),
                         webRequest,
                         ex.getResponse().getStatus()),
                 ex.getResponse().getStatus());
     }
-    private ResponseEntity<Map<String,Object>> of(MethodArgumentNotValidException ex,WebRequest webRequest){
+
+    private ResponseEntity<Map<String, Object>> of(MethodArgumentNotValidException ex, WebRequest webRequest) {
         return new ResponseEntity<>(
                 buildExceptionResponse(ex,
                         webRequest
                 ),
                 HttpStatus.BAD_REQUEST);
     }
-    private ResponseEntity<Map<String,Object>> of(AccessDeniedException ex,WebRequest webRequest){
+
+    private ResponseEntity<Map<String, Object>> of(AccessDeniedException ex, WebRequest webRequest) {
         return new ResponseEntity<>(
                 buildExceptionResponse(messageUtil.getMessage(Exceptions.ACCESS_DENIED_EXCEPTION.getMessage()),
                         webRequest,
                         Exceptions.ACCESS_DENIED_EXCEPTION.getStatus()),
                 Exceptions.ACCESS_DENIED_EXCEPTION.getStatus());
     }
-    private ResponseEntity<Map<String,Object>> of(Exception ex,WebRequest webRequest){
+
+    private ResponseEntity<Map<String, Object>> of(Exception ex, WebRequest webRequest) {
         return new ResponseEntity<>(
                 buildExceptionResponse(ex.getMessage(),
                         webRequest,
                         HttpStatus.BAD_REQUEST),
                 HttpStatus.BAD_REQUEST);
     }
-    private ResponseEntity<Map<String,Object>> of(DataIntegrityViolationException ex,WebRequest webRequest){
+
+    private ResponseEntity<Map<String, Object>> of(DataIntegrityViolationException ex, WebRequest webRequest) {
         return new ResponseEntity<>(
                 buildExceptionResponse(messageUtil.getMessage(Exceptions.USERNAME_IS_UNAVAILABLE_EXCEPTION.getMessage()),
                         webRequest,
@@ -136,24 +150,26 @@ public class GlobalHandler extends DefaultErrorAttributes {
                 Exceptions.USERNAME_IS_UNAVAILABLE_EXCEPTION.getStatus());
     }
 
-    private ResponseEntity<Map<String,Object>> of(BadCredentialsException ex,
-                                                  WebRequest webRequest){
+    private ResponseEntity<Map<String, Object>> of(BadCredentialsException ex,
+                                                   WebRequest webRequest) {
         return new ResponseEntity<>(
                 buildExceptionResponse(messageUtil.getMessage(Exceptions.BAD_CREDENTIALS_EXCEPTION.getMessage()),
                         webRequest,
                         Exceptions.BAD_CREDENTIALS_EXCEPTION.getStatus()),
                 Exceptions.BAD_CREDENTIALS_EXCEPTION.getStatus());
     }
-    private ResponseEntity<Map<String,Object>> of(NotFoundException ex, WebRequest webRequest){
+
+    private ResponseEntity<Map<String, Object>> of(NotFoundException ex, WebRequest webRequest) {
         return new ResponseEntity<>(buildExceptionResponse(
-                messageUtil.getMessage(ex.getResponse().getMessage(),ex.getDynamicKey()),
+                messageUtil.getMessage(ex.getResponse().getMessage(), ex.getDynamicKey()),
                 webRequest,
-                ex.getResponse().getStatus()),ex.getResponse().getStatus());
+                ex.getResponse().getStatus()), ex.getResponse().getStatus());
     }
-    private ResponseEntity<Map<String,Object>> of(UsernameNotFoundException ex, WebRequest webRequest){
+
+    private ResponseEntity<Map<String, Object>> of(UsernameNotFoundException ex, WebRequest webRequest) {
         return new ResponseEntity<>(buildExceptionResponse(
                 messageUtil.getMessage(ex.getResponse().getMessage()),
                 webRequest,
-                ex.getResponse().getStatus()),ex.getResponse().getStatus());
+                ex.getResponse().getStatus()), ex.getResponse().getStatus());
     }
 }

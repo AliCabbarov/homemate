@@ -4,10 +4,12 @@ import divacademy.homemate.model.entity.TableDetail;
 import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
+@ToString
 public class UserDetailResponse {
     private long id;
     private String firstname;

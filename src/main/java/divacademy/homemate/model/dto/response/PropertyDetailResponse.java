@@ -6,10 +6,12 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.List;
 @Getter
 @AllArgsConstructor
+@ToString
 public class PropertyDetailResponse {
     private long id;
     private String address;

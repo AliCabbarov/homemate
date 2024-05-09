@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: homemate-backend
-          image: srthealikk/homemate:1.0.4
+          image: srthealikk/homemate:1.0.5
           ports:
             - containerPort: 8080
           env:

@@ -5,11 +5,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 import static divacademy.homemate.model.constant.ValidationExceptions.*;
 
 @Getter
 @AllArgsConstructor
+@ToString
 public class UserRequest {
     @Email(message = EMAIL_EXCEPTION)
     @NotBlank(message = NOT_BLANK_EXCEPTION)

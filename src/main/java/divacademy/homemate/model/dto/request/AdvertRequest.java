@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import static divacademy.homemate.model.constant.ValidationExceptions.NOT_BLANK_
 
 @Getter
 @AllArgsConstructor
+@ToString
 public class AdvertRequest {
     private String description;
     private double amount;

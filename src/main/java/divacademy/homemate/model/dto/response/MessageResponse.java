@@ -3,6 +3,7 @@ package divacademy.homemate.model.dto.response;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -12,6 +13,7 @@ import java.util.Objects;
 
 @Getter
 @AllArgsConstructor
+@ToString
 public class MessageResponse {
     private HttpStatus status;
     private String message;

@@ -3,11 +3,13 @@ package divacademy.homemate.model.dto.response;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class TokenResponse {
     private  String accessToken;
     private  String refreshToken;

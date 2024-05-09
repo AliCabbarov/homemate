@@ -1,5 +1,6 @@
 package divacademy.homemate.controller;
 
+import divacademy.homemate.aop.Log;
 import divacademy.homemate.model.dto.request.GenderRequest;
 import divacademy.homemate.model.dto.request.RoleRequest;
 import divacademy.homemate.model.dto.request.SubscriptionTypeRequest;
@@ -22,45 +23,55 @@ import java.util.List;
 @SecurityRequirement(name = "bearerAuth")
 public class AdminController {
     private final AdminService adminService;
+
+    @Log
     @PostMapping
-    public ResponseEntity<MessageResponse> create(@RequestBody @Valid UserRequest request){
+    public ResponseEntity<MessageResponse> create(@RequestBody @Valid UserRequest request) {
         return adminService.create(request);
     }
 
+    @Log
     @PostMapping("/role")
     public ResponseEntity<MessageResponse> createRole(@RequestBody @Valid RoleRequest roleRequest) {
         return adminService.createRole(roleRequest);
     }
 
+    @Log
     @PutMapping("/role/{id}")
     public ResponseEntity<MessageResponse> updateRole(@PathVariable long id,
                                                       @RequestBody @Valid RoleRequest roleRequest) {
         return adminService.updateRole(id, roleRequest);
     }
 
+    @Log
     @PostMapping("/subscription-type")
     public ResponseEntity<MessageResponse> createSubsType(@RequestBody @Valid SubscriptionTypeRequest subscriptionRequest) {
         return adminService.createSubsType(subscriptionRequest);
     }
 
+    @Log
     @GetMapping("/subscription-type")
     public ResponseEntity<List<SubsTypeResponse>> getAllSubsType() {
         return adminService.getSubType();
     }
 
+    @Log
     @GetMapping("/genders")
     public ResponseEntity<List<GenderResponse>> getAllGender() {
         return adminService.getAllAvailableGender();
     }
 
+    @Log
     @PostMapping("/genders")
     public ResponseEntity<MessageResponse> createGender(@RequestBody @Valid GenderRequest genderRequest) {
         return adminService.createGender(genderRequest);
 
     }
+
+    @Log
     @PatchMapping("/change-role")
     public ResponseEntity<MessageResponse> changeRoleByUserId(@RequestParam long userId,
-                                                              @RequestParam long roleId){
-        return adminService.changeRoleByUserId(userId,roleId);
+                                                              @RequestParam long roleId) {
+        return adminService.changeRoleByUserId(userId, roleId);
     }
 }

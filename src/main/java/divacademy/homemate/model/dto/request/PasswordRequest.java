@@ -5,12 +5,14 @@ import divacademy.homemate.model.exception.ApplicationException;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
+import lombok.ToString;
 
 import static divacademy.homemate.model.constant.ValidationExceptions.NOT_BLANK_EXCEPTION;
 import static divacademy.homemate.model.constant.ValidationExceptions.PASSWORD_PATTERN_EXCEPTION;
 import static divacademy.homemate.model.enums.Exceptions.NOT_SAME_PASSWORD;
 
 @Getter
+@ToString
 public class PasswordRequest {
     @NotBlank(message = NOT_BLANK_EXCEPTION)
     @Pattern(regexp = "[a-zA-z0-9]{6,20}", message = PASSWORD_PATTERN_EXCEPTION)

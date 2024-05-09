@@ -91,11 +91,11 @@ public class SecurityConfig {
                         .anyRequest().denyAll())
 
 
-                .authenticationProvider(authenticationProvider)
+                .oauth2Login(httpSecurityOAuth2LoginConfigurer -> httpSecurityOAuth2LoginConfigurer.successHandler(oAuth2ApplicationConfigurer.successHandler()))
                 .exceptionHandling(handling-> handling
                         .authenticationEntryPoint(authenticationEntryPoint())
                         .accessDeniedHandler(accessDeniedHandler()))
-                .oauth2Login(httpSecurityOAuth2LoginConfigurer -> httpSecurityOAuth2LoginConfigurer.successHandler(oAuth2ApplicationConfigurer.successHandler()))
+                .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
