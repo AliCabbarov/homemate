@@ -1,0 +1,97 @@
+2024-05-10 00:05:51,797 TRACE [main] o.s.b.web.servlet.ServletContextInitializerBeans  Added existing Filter initializer bean 'securityFilterChainRegistration'; order=-100, resource=class path resource [org/springframework/boot/autoconfigure/security/servlet/SecurityFilterAutoConfiguration.class]
+2024-05-10 00:05:51,801 TRACE [main] o.s.b.web.servlet.ServletContextInitializerBeans  Added existing Servlet initializer bean 'dispatcherServletRegistration'; order=2147483647, resource=class path resource [org/springframework/boot/autoconfigure/web/servlet/DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration.class]
+2024-05-10 00:05:51,822 TRACE [main] o.s.b.web.servlet.ServletContextInitializerBeans  Created Filter initializer for bean 'characterEncodingFilter'; order=-2147483648, resource=class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class]
+2024-05-10 00:05:51,823 TRACE [main] o.s.b.web.servlet.ServletContextInitializerBeans  Created Filter initializer for bean 'formContentFilter'; order=-9900, resource=class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration.class]
+2024-05-10 00:05:51,823 TRACE [main] o.s.b.web.servlet.ServletContextInitializerBeans  Created Filter initializer for bean 'requestContextFilter'; order=-105, resource=class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]
+2024-05-10 00:05:51,823 TRACE [main] o.s.b.web.servlet.ServletContextInitializerBeans  Created Filter initializer for bean 'jwtAuthenticationFilter'; order=2147483647, resource=file [C:\Users\user\Documents\IdeaProjects\homemate\build\classes\java\main\divacademy\homemate\filter\JwtAuthenticationFilter.class]
+2024-05-10 00:05:51,829 DEBUG [main] o.s.b.web.servlet.ServletContextInitializerBeans  Mapping filters: springSecurityFilterChain urls=[/*] order=-100, characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105, jwtAuthenticationFilter urls=[/*] order=2147483647
+2024-05-10 00:05:51,829 DEBUG [main] o.s.b.web.servlet.ServletContextInitializerBeans  Mapping servlets: dispatcherServlet urls=[/]
+2024-05-10 00:05:56,982 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	d.h.c.AdminController:
+	{POST [/api/v1/admins]}: create(UserRequest)
+	{PUT [/api/v1/admins/role/{id}]}: updateRole(long,RoleRequest)
+	{POST [/api/v1/admins/subscription-type]}: createSubsType(SubscriptionTypeRequest)
+	{POST [/api/v1/admins/role]}: createRole(RoleRequest)
+	{PATCH [/api/v1/admins/change-role]}: changeRoleByUserId(long,long)
+	{POST [/api/v1/admins/genders]}: createGender(GenderRequest)
+	{GET [/api/v1/admins/subscription-type]}: getAllSubsType()
+	{GET [/api/v1/admins/genders]}: getAllGender()
+2024-05-10 00:05:56,988 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	d.h.c.AdvertController:
+	{GET [/api/v1/adverts/property-type]}: getProperties()
+	{POST [/api/v1/adverts]}: create(AdvertRequest)
+	{GET [/api/v1/adverts]}: getAll(Double,Double,Long,Long,Long,int,int)
+	{GET [/api/v1/adverts/connection/{advertId}]}: getConnection(long)
+	{GET [/api/v1/adverts/{id}]}: getById(long)
+	{POST [/api/v1/adverts/advert-type]}: createAdvertType(AdvertTypeRequest)
+	{GET [/api/v1/adverts/building-types]}: getAllBuildingType()
+	{DELETE [/api/v1/adverts/{id}]}: deleteAdvert(long)
+	{GET [/api/v1/adverts/advert-type]}: getAllAdvertType()
+	{POST [/api/v1/adverts/building-types]}: createBuildingType(BuildingTypeRequest)
+	{POST [/api/v1/adverts/property-type]}: createPropertyType(AdvertPropertyTypeRequest)
+2024-05-10 00:05:56,990 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	d.h.c.AuthenticationController:
+	{GET [/api/v1/auth]}: tokenByRefreshToken(String)
+	{POST [/api/v1/auth]}: login(LoginRequest)
+	{GET [/api/v1/auth/oauth-login]}: login(HttpServletRequest)
+2024-05-10 00:05:56,991 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	d.h.c.FileController:
+	{GET [/api/v1/files/{id}]}: getFilesByAdvertId(Long)
+	{POST [/api/v1/files/{advertId}]}: uploadFile(MultipartFile,Long)
+	{GET [/api/v1/files/download/{fileName}]}: download(String)
+2024-05-10 00:05:56,992 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	d.h.c.UserController:
+	{POST [/api/v1/users]}: register(UserRequest)
+	{POST [/api/v1/users/reset-password-confirm]}: forgotPasswordConfirm(String,PasswordRequest)
+	{GET [/api/v1/users/confirmation]}: confirm(String)
+	{POST [/api/v1/users/subs]}: createSubscription(SubsRequest)
+	{POST [/api/v1/users/subs-confirm/{subs-id}]}: confirmSubs(long,CardRequest)
+	{POST [/api/v1/users/change-password]}: changePassword(PasswordRequest)
+	{POST [/api/v1/users/details]}: setUserDetails(UserDetailRequest)
+	{GET [/api/v1/users]}: getAllUser(int,int)
+	{GET [/api/v1/users/forgot-password]}: forgotPassword(String)
+	{GET [/api/v1/users/{id}]}: getUserById(long)
+	{DELETE [/api/v1/users/{id}]}: deleteUserById(long)
+2024-05-10 00:05:56,995 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2024-05-10 00:05:57,011 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2024-05-10 00:05:57,013 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2024-05-10 00:05:57,014 TRACE [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2024-05-10 00:05:57,016 DEBUG [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping  42 mappings in 'requestMappingHandlerMapping'
+2024-05-10 00:05:57,025 DEBUG [main] o.s.w.servlet.handler.BeanNameUrlHandlerMapping  Detected 0 mappings in 'beanNameHandlerMapping'
+2024-05-10 00:05:57,102 TRACE [main] o.s.w.s.function.support.RouterFunctionMapping  0 RouterFunction(s) in 'routerFunctionMapping'
+2024-05-10 00:05:57,115 TRACE [main] o.s.web.servlet.handler.SimpleUrlHandlerMapping  Mapped [/webjars/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-05-10 00:05:57,115 TRACE [main] o.s.web.servlet.handler.SimpleUrlHandlerMapping  Mapped [/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-10 00:05:57,116 TRACE [main] o.s.web.servlet.handler.SimpleUrlHandlerMapping  Mapped [/swagger-ui*/*swagger-initializer.js] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-05-10 00:05:57,116 TRACE [main] o.s.web.servlet.handler.SimpleUrlHandlerMapping  Mapped [/swagger-ui*/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-05-10 00:05:57,116 DEBUG [main] o.s.web.servlet.handler.SimpleUrlHandlerMapping  Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-05-10 00:05:57,386 DEBUG [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter  ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-10 00:05:57,430 DEBUG [main] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver  ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-10 00:06:15,039 INFO [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  Initializing Servlet 'dispatcherServlet'
+2024-05-10 00:06:15,039 TRACE [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@401038b1
+2024-05-10 00:06:15,040 TRACE [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@27a93cfa
+2024-05-10 00:06:15,040 TRACE [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  Detected org.springframework.web.servlet.theme.FixedThemeResolver@2273255e
+2024-05-10 00:06:15,041 TRACE [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  Detected DefaultRequestToViewNameTranslator
+2024-05-10 00:06:15,042 TRACE [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  Detected SessionFlashMapManager
+2024-05-10 00:06:15,042 DEBUG [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-10 00:06:15,042 INFO [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  Completed initialization in 3 ms
+2024-05-10 00:06:15,065 TRACE [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to divacademy.homemate.controller.FileController#getFilesByAdvertId(Long)
+2024-05-10 00:06:15,208 TRACE [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  GET "/api/v1/files/1", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2024-05-10 00:06:15,211 TRACE [http-nio-8080-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to divacademy.homemate.controller.FileController#getFilesByAdvertId(Long)
+2024-05-10 00:06:15,236 TRACE [http-nio-8080-exec-1] org.springframework.web.method.HandlerMethod  Arguments: [1]
+2024-05-10 00:06:15,563 DEBUG [http-nio-8080-exec-1] o.s.w.s.m.m.annotation.HttpEntityMethodProcessor  Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-05-10 00:06:15,565 TRACE [http-nio-8080-exec-1] o.s.w.s.m.m.annotation.HttpEntityMethodProcessor  Writing [[]]
+2024-05-10 00:06:15,584 TRACE [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  No view rendering, null ModelAndView returned.
+2024-05-10 00:06:15,587 DEBUG [http-nio-8080-exec-1] o.springframework.web.servlet.DispatcherServlet  Completed 200 OK, headers={masked}
+2024-05-10 00:06:25,309 TRACE [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to divacademy.homemate.controller.FileController#getFilesByAdvertId(Long)
+2024-05-10 00:06:25,330 TRACE [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping  2 matching mappings: [{ [/error]}, { [/error], produces [text/html]}]
+2024-05-10 00:06:25,331 TRACE [http-nio-8080-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping  Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
